@@ -1,3 +1,13 @@
+# Changed in this fork
+This fork of [docker-webhook](https://github.com/staticfloat/docker-webhook) simply updates the Dockerfile:
+
+- Using `docker:latest` instead of `docker:stable` for newer alpine version. This is because the built `docker-compose` is `1.27.x`, which will cause problems with new `docker-compose.yml` files.
+- Instead of custom building `docker-compose`, use `apk add docker-compose` instead, to reduce the image size and Dockerfile complexity
+
+This forked repo's docker image is `jamiephan/webhook`. To keep the following README original, please change `staticfloat/docker-webhook` to `jamiephan/webhook`.
+
+---
+
 # docker-webhook
 
 Simple python application to listen for GitHub webhook events and run scripts in response to `push` events.  This is mostly useful as a part of a larger project that needs to reload itself on deploy events.  The behavior of this image can be altered through the use of environment variables, the full list of which are included in a table below.  The suggested way of using this image is through a `docker-compose.yml` setup.  To illustrate this, read through the following scenario and code bits:
