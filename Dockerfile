@@ -5,7 +5,7 @@
 #     apk del build-base python3-dev libffi-dev openssl-dev
 
 FROM docker:latest
-RUN apk add --no-cache python3 py3-pip docker-compose make bash
+RUN apk add --no-cache python3 py3-pip docker-compose make bash git
 
 # Create /app/ and /app/hooks/
 RUN mkdir -p /app/hooks/
